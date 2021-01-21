@@ -1,3 +1,5 @@
+Adjusted version of the original cross-var that returns an error code when an error occurs.
+
 # `cross-var`
 
 [![NPM](https://nodei.co/npm/cross-var.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/cross-var/) 
