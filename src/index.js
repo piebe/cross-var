@@ -23,6 +23,7 @@ if ( args.length === 1 ) {
     const proc = exec( command, ( error, stdout, stderr ) => {
         if ( error ) {
             console.error( `exec error: ${ error }` );
+            exit(1);
             return;
         }
         process.stdout.write( stdout );
