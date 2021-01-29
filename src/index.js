@@ -21,13 +21,19 @@ let args = process.argv.slice( 2 );
 if ( args.length === 1 ) {
     const [ command ] = normalize( args );
     const proc = exec( command, ( error, stdout, stderr ) => {
+        if (stdout) {
+            process.stdout.write( stdout );
+        }
+        if (stderr) {
+            process.stderr.write( stderr );
+        }
         if ( error ) {
             console.error( `exec error: ${ error }` );
-            exit(1);
+            if (!proc.code) {
+                exit(1);
+            }
             return;
         }
-        process.stdout.write( stdout );
-        process.stderr.write( stderr );
         exit(proc.code);
     });
 } else {
